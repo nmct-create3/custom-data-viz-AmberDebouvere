@@ -20,6 +20,12 @@
     --color-neutral-900: oklch(0.18 0.02 290.7);
 
     --global-fontSize: 14;
+    --global-uiColor: var(--color-6);
+    --global-textColor: var(--color-neutral-800);
+    --global-textColor-muted: var(--color-neutral-600);
+    --global-textColor-meta: var(--color-neutral-500);
+    --global-bgColor: var(--color-neutral-100);
+    --global-foregroundColor: white;
 }
 
 
@@ -39,17 +45,55 @@ svg {
     height: auto;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-bgColor: var(--color-neutral-900);
+        --global-textColor: var(--color-neutral-100);
+        --global-textColor-muted: var(--color-neutral-300);
+        --global-textColor-meta: var(--color-neutral-500);
+        --global-foregroundColor: var(--color-neutral-800);
+    }
+}
 /* global page styles */
 
-html {}
+html {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    color: var(--global-textColor);
+    background-color: var(--global-bgColor);
+    font-size: calc(var(--global-fontSize)/16*1rem);
+}
 
-/* center everything */
 
-body {}
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr;
+    background-color: var(--global-bgColor);
+    color: var(--global-textColor); 
+}
+
+
+
+.app {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 
 /* global typography */
 
-h2 {}
+h2 {
+    font-size: 1rem;
+}
 
 /* screen reader only object class */
 
